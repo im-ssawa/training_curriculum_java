@@ -65,9 +65,37 @@ public class CalendarsController {
           }
       }
 
+      String dayOfWeek = "";
+      switch(currentDate.getDayOfWeek().getValue()) {
+        case 1:
+          dayOfWeek = wdays[1];
+          break;
+        case 2:
+          dayOfWeek = wdays[2];
+          break;
+        case 3:
+          dayOfWeek = wdays[3];
+          break;
+        case 4:
+          dayOfWeek = wdays[4];
+          break;
+        case 5:
+          dayOfWeek = wdays[5];
+          break;
+        case 6:
+          dayOfWeek = wdays[6];
+          break;
+        case 7:
+          dayOfWeek = wdays[0];
+          break;
+        default:
+          break;
+      }
+
       day_map.put("month", currentDate.getMonthValue());
       day_map.put("date", currentDate.getDayOfMonth());
       day_map.put("plans", todayPlans);
+      day_map.put("dayOfWeek", dayOfWeek);
 
       weekDays.add(day_map);
     }
